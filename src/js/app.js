@@ -1,24 +1,31 @@
 
-// Main CSS
 require('../css/main.css');
 
 var Geolocation = require('./geolocation.js');
-var Weather =     require('./weather.js');
-var Song =        require('./song.js');
-var Spinner =     require('./spinner.js');
+var Weather     = require('./weather.js');
+var Song        = require('./song.js');
+var Background  = require('./background.js');
+var Spinner     = require('./spinner.js');
 
+var firstCall, secondCall, thirdCall;
 
-var firstCall = new Promise(function (resolve, reject) {
+var loadImg = (src, callback) => {
 
-    var coords = Geolocation.checkPosition(function(){
+    var sprite = new Image();
+    sprite.onload = callback;
+    sprite.src = src;
+
+};
+
+firstCall = new Promise(function (resolve, reject) {
+
+    Geolocation.checkPosition(function(){
         resolve();
     });
 
-})
+}).then(function(data){
 
-firstCall.then(function(data){
-
-    var secondCall = new Promise(function (resolve, reject) {
+    secondCall = new Promise(function (resolve, reject) {
 
         Weather.getWeather(function (data) {
             resolve(data);
@@ -28,15 +35,33 @@ firstCall.then(function(data){
 
         var mood = data;
 
-        var thirdCall = new Promise(function (resolve, reject) {
+        thirdCall = new Promise(function (resolve, reject) {
+
             Song.getSong(function (data) {
                 resolve(data);
             }, mood)
+
         }).then(function (data) {
-            document.getElementById("app").innerHTML = '<a href="'+data.external_urls.spotify+'"><img src="'+data.images[0].url+'"></a>';
+
+            console.log(data.name);
+
+            // var img = data.images[0].url;
+            var img = data.album.images[0].url;
+
+            loadImg(img, function() {
+
+                document.getElementById("song").innerHTML = '<a href="'+data.external_urls.spotify+'" id="card"><img src="'+img+'"></a>';
+                setTimeout(function(argument) {
+                    document.getElementById("card").className += "flipped";
+                    Background.setBackground(mood);
+                }, 100)
+
+            });
+
         })
 
     })
+
 })
 
 

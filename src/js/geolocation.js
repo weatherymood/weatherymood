@@ -2,6 +2,7 @@
 var Geolocation = {
 
   getPosition: (cb) => {
+
     navigator.geolocation.getCurrentPosition(
       (position) => {
         Geolocation.savePosition(position.coords.latitude + ',' + position.coords.longitude, cb);
@@ -9,12 +10,6 @@ var Geolocation = {
       (error) => {
       }
     );
-  },
-
-  retrievePosition: (cb) => {
-
-    cb();
-    return localStorage.getItem("SWM_Position");
 
   },
 
@@ -22,16 +17,15 @@ var Geolocation = {
 
     localStorage.setItem("SWM_Position", position);
     cb();
-    return position;
 
   },
 
   checkPosition: (cb) => {
 
     if (localStorage.getItem("SWM_Position") === null) {
-      return Geolocation.getPosition(cb);
+      Geolocation.getPosition(cb);
     } else {
-      return Geolocation.retrievePosition(cb);
+      cb();
     }
 
   }

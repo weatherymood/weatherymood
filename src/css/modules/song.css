@@ -1,0 +1,27 @@
+#song{
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    perspective: 1200px;
+}
+
+#song a{
+    display: block;
+    transform: rotateY(-40deg);
+    transform-style: preserve-3d;
+    transition: all .5s ease-out;
+    opacity: 0;
+}
+
+#song a.flipped{
+    box-shadow: 0 0 300px rgba(0,0,0,0.2);
+    opacity: 1;
+    transform: rotateY(0deg);
+}
+
+#song img{
+    display: block;
+    width: 100%;
+}
