@@ -1,5 +1,5 @@
 :root {
-    --mainColor: #ffbbaaff;
+    --mainColor: #000;
 }
 
 @custom-media    --mobile (width <= 640px);
@@ -8,8 +8,9 @@
 main {
     --heading {
         text-rendering: optimizeLegibility;
-        color: color( var(--mainColor) blackness(+20%) );
+        color: color( var(--mainColor) );
     }
+    background: color( var(--mainColor) );
 }
 
 @media (--mobile) {
