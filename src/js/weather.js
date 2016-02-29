@@ -15,13 +15,13 @@ var Weather = {
 
     axios.get(url)
       .then(function (response) {
-        console.log(response.data.weather[0].main);
-        cb();
+
+        cb(response.data.weather[0].main);
+        return response.data.weather[0].main;
       })
       .catch(function (response) {
-        console.log(response);
+        // console.log(response);
       });
-
 
   }
 

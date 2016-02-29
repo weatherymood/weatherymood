@@ -4,7 +4,9 @@ require('../css/main.css');
 
 var Geolocation = require('./geolocation.js');
 var Weather =     require('./weather.js');
+var Song =        require('./song.js');
 var Spinner =     require('./spinner.js');
+
 
 var firstCall = new Promise(function (resolve, reject) {
 
@@ -12,25 +14,32 @@ var firstCall = new Promise(function (resolve, reject) {
         resolve();
     });
 
-    // console.log('position', coords);
 })
 
 firstCall.then(function(data){
-    console.log('--- posizione ricevuta, inizio chiamata a weather')
+
     var secondCall = new Promise(function (resolve, reject) {
+
         Weather.getWeather(function (data) {
-            resolve();
+            resolve(data);
         });
+
+    }).then(function (data) {
+
+        var mood = data;
+
+        var thirdCall = new Promise(function (resolve, reject) {
+            Song.getSong(function (data) {
+                resolve(data);
+            }, mood)
+        }).then(function (data) {
+            document.getElementById("app").innerHTML = '<a href="'+data.external_urls.spotify+'"><img src="'+data.images[0].url+'"></a>';
+        })
+
     })
 })
 
 
-const WHO = 'JS';
-
-// const latlong = Geolocation.getPosition();
-let greeter = (who) => 'Hello from ' + who + '!';
 
 
-document.getElementById('app').appendChild(
-    document.createTextNode(greeter(WHO))
-);
+
