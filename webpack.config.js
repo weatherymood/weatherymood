@@ -1,7 +1,7 @@
 var path = require('path');
 
 var autoprefixer = require('autoprefixer-core');
-var cssnext = require('cssnext');
+// var cssnext = require('cssnext');
 var doiuse = require('doiuse');
 var colors = require('colors');
 var wordwrap = require('wordwrap')
@@ -17,14 +17,13 @@ module.exports = {
             poll: 1000
         },
     },
-    // watchOptions: {
-    //     poll: 100
-    // },
     entry: {
-        app: ['./src/js/app.js']
+        js: './src/js/app.js',
+        html: './index.html',
     },
+
     output: {
-        path: require('path').resolve('build'),
+        path: './build',
         publicPath: '/',
         filename: 'bundle.js'
     },
@@ -35,6 +34,10 @@ module.exports = {
                 loader: 'style-loader!css-loader!postcss-loader'
             },
             {
+                test: /\.html$/,
+                loader: 'file?name=[name].[ext]'
+            },
+            {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
@@ -43,7 +46,7 @@ module.exports = {
     },
     postcss: [
         nested,
-        cssnext,
+        // cssnext,
         doiuse({
             onFeatureUsage: function(info) {
                 var source = info.usage.source;
