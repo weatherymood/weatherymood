@@ -1,0 +1,13 @@
+{
+
+  "manifest_version": 2,
+  "name": "spotify-weather-mood",
+  "version": "0.0.1",
+  "description": "An easy app that retrieves a list of songs based on current weather.",
+  "author": "Nicholas Ruggeri",
+
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  }
+
+}
