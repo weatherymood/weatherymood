@@ -1,13 +1,14 @@
 
 require('../css/modules/song.css');
 
-var Moods = require('./moods.js');
+import moods from './moods.js';
+
+var Moods = new moods();
 var axios = require('../../node_modules/axios');
 
-var Song = {
+export default class Song {
 
-  getSong: (cb, mood) => {
-
+  getSong(cb, mood){
     var keyword = Moods.getKeyword(mood);
     var config = {
       url: "https://api.spotify.com/v1/search?q="+keyword+"&type=track&limit=50"
@@ -24,9 +25,5 @@ var Song = {
       })
       .catch(function (response) {
       });
-
   }
-
 };
-
-module.exports = Song;

@@ -1,12 +1,10 @@
 
 require('../css/modules/background.css');
 
-var Background = {
+export default class Background {
 
-  setBackground: (mood) => {
+  setBackground(mood){
     document.getElementById("background-active").className += mood;
   }
 
 };
-
-module.exports = Background;

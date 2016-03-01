@@ -1,13 +1,15 @@
 
-require('../css/main.css');
-require('../css/modules/aside.css');
+import song from './song.js';
+import moods from './moods.js';
+import weather from './weather.js';
+import background from './background.js';
+import geolocation from './geolocation.js';
 
-var Geolocation = require('./geolocation.js');
-var Weather     = require('./weather.js');
-var Song        = require('./song.js');
-var Background  = require('./background.js');
-var Spinner     = require('./spinner.js');
-var Moods       = require('./moods.js');
+var Song  = new song();
+var Moods  = new moods();
+var Weather  = new weather();
+var Background  = new background();
+var Geolocation  = new geolocation();
 
 var firstCall, secondCall, thirdCall;
 
@@ -45,15 +47,26 @@ firstCall = new Promise(function (resolve, reject) {
 
         }).then(function (data) {
 
-            var img = data.album.images[0].url;
+            console.log(data)
 
-            loadImg(img, function() {
+            var track = {
+                name: data.name,
+                album: data.album.name,
+                cover: data.album.images[0].url
+            }
 
-                document.getElementById("song").innerHTML = '<a href="'+data.external_urls.spotify+'" id="card"><img src="'+img+'"></a>';
-                setTimeout(function(argument) {
+            loadImg(track.cover, function() {
+
+                document.getElementById("song-cover").innerHTML = '<a href="'+data.uri+'" id="card"><img src="'+track.cover+'"></a>';
+                setTimeout(function() {
                     document.getElementById("card").className += "flipped";
+                }, 100);
+                document.getElementById("song-album").innerHTML = track.album;
+                document.getElementById("song-name").innerHTML = track.name;
+                setTimeout(function () {
                     Background.setBackground(Moods.getClass(mood));
-                }, 100)
+                    document.getElementById("song-details").className += "active";
+                }, 500)
 
             });
 

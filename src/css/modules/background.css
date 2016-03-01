@@ -1,8 +1,11 @@
 .background{
+    left: 0;
+    top: 0;
     position: absolute;
     width: 100%;
     height: 100%;
-    background: radial-gradient(to 50%, #8e9eab , #eef2f3);
+    background: rgb(248, 248, 248);
+    background: radial-gradient(to 50%, #c3c3c3 , #fff);
 }
 
 #background-active{
@@ -12,40 +15,40 @@
     top: 0;
     left: 0;
     opacity: 0;
-    transition: opacity .5s ease-in-out;
+    transition: all 1s ease-in-out;
 }
 
 #background-active.sun{
     opacity: 1;
-    background: radial-gradient(to 50%, #c2e59c , #64b3f4);
+    background: linear-gradient(45deg, rgba(255,240,47,1) 0%, rgba(255,240,47,1) 21%, rgba(0,161,255,1) 100%);
 }
 
 #background-active.rain{
-    opacity: 1;
-    background: radial-gradient(to 50%, #304352 , #d7d2cc);
+    opacity: 0.3;
+    background: #194D69;
 }
 
 #background-active.snow{
-    opacity: 1;
-    background: radial-gradient(to 50%, #ECE9E6 , #FFFFFF);
+    opacity: 0.3;
+    background: #fff;
 }
 
 #background-active.clouds{
-    opacity: 1;
-    background: radial-gradient(to 50%, #8e9eab , #eef2f3);
+    opacity: 0.3;
+    background: #3d3d3d;
 }
 
 #background-active.thunderstorm{
-    opacity: 1;
-    background: radial-gradient(to 50%, #283048 , #859398);
+    opacity: 0.3;
+    background: #3d3d3d;
 }
 
 #background-active.mist{
     opacity: 1;
-    background: radial-gradient(to 50%, #757F9A , #D7DDE8);
+    /*background: radial-gradient(to 50%, #757F9A , #D7DDE8);*/
 }
 
 #background-active.clouds{
     opacity: 1;
-    background: radial-gradient(to 50%, #83a4d4 , #b6fbff);
+    /*background: radial-gradient(to 50%, #83a4d4 , #b6fbff);*/
 }
