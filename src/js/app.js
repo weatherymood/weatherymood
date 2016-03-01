@@ -1,5 +1,6 @@
 
 require('../css/main.css');
+require('../css/modules/aside.css');
 
 var Geolocation = require('./geolocation.js');
 var Weather     = require('./weather.js');
@@ -33,8 +34,6 @@ firstCall = new Promise(function (resolve, reject) {
         });
 
     }).then(function (data) {
-
-        // console.log('data', data)
 
         var mood = data;
 

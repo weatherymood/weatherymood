@@ -16,7 +16,6 @@ var Weather = {
 
     axios.get(url)
       .then(function (response) {
-        console.log(response);
         cb(response.data.weather[0].id);
       })
       .catch(function (response) {
