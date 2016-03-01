@@ -6,6 +6,7 @@ var Weather     = require('./weather.js');
 var Song        = require('./song.js');
 var Background  = require('./background.js');
 var Spinner     = require('./spinner.js');
+var Moods       = require('./moods.js');
 
 var firstCall, secondCall, thirdCall;
 
@@ -33,6 +34,8 @@ firstCall = new Promise(function (resolve, reject) {
 
     }).then(function (data) {
 
+        // console.log('data', data)
+
         var mood = data;
 
         thirdCall = new Promise(function (resolve, reject) {
@@ -43,9 +46,6 @@ firstCall = new Promise(function (resolve, reject) {
 
         }).then(function (data) {
 
-            console.log(data.name);
-
-            // var img = data.images[0].url;
             var img = data.album.images[0].url;
 
             loadImg(img, function() {
@@ -53,7 +53,7 @@ firstCall = new Promise(function (resolve, reject) {
                 document.getElementById("song").innerHTML = '<a href="'+data.external_urls.spotify+'" id="card"><img src="'+img+'"></a>';
                 setTimeout(function(argument) {
                     document.getElementById("card").className += "flipped";
-                    Background.setBackground(mood);
+                    Background.setBackground(Moods.getClass(mood));
                 }, 100)
 
             });

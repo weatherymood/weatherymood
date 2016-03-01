@@ -1,6 +1,6 @@
 
-var axios = require('../../node_modules/axios');
 var Moods = require('./moods.js');
+var axios = require('../../node_modules/axios');
 
 var Weather = {
 
@@ -16,10 +16,10 @@ var Weather = {
 
     axios.get(url)
       .then(function (response) {
-        cb(Moods[response.data.weather[0].main.toLowerCase()]);
+        console.log(response);
+        cb(response.data.weather[0].id);
       })
       .catch(function (response) {
-        // console.log(response);
       });
 
   }
