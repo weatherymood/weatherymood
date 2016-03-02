@@ -17,8 +17,6 @@ export default class Song {
     axios.get(config.url)
       .then(function (response) {
 
-        console.log(response)
-
         var limit = response.data.playlists.items.length;
         var randomnumber = Math.floor(Math.random() * (0 - limit + 1)) + limit;
 

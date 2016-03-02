@@ -1,9 +1,9 @@
 {
 
   "manifest_version": 2,
-  "name": "weatherymood",
+  "name": "Weatherymood",
   "version": "0.0.1",
-  "description": "An easy app that retrieves a song based on current weather.",
+  "description": "Weatherymood is a chrome extension that shows playlists based on current weather.",
   "author": "Nicholas Ruggeri",
 
   "chrome_url_overrides" : {

@@ -10,13 +10,13 @@ export default class Weather {
 
   getWeather(cb){
 
-    console.log(this)
 
     var coords = localStorage.getItem("SWM_Position").split(","),
         url = this.api_url + 'lat=' + coords[0] + '&lon=' + coords[1] + '&appid=' + this.api_key;
 
     axios.get(url)
         .then(function (response) {
+          document.getElementById("info-meteo").innerHTML = response.data.weather[0].description;
           cb(response.data.weather[0].id);
         })
         .catch(function (response) {
