@@ -1,7 +1,6 @@
 var path = require('path');
 
 var autoprefixer = require('autoprefixer-core');
-// var cssnext = require('cssnext');
 var doiuse = require('doiuse');
 var colors = require('colors');
 var wordwrap = require('wordwrap')
@@ -46,7 +45,6 @@ module.exports = {
     },
     postcss: [
         nested,
-        // cssnext,
         doiuse({
             onFeatureUsage: function(info) {
                 var source = info.usage.source;

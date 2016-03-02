@@ -1,6 +1,6 @@
 {
-  "name": "spotify-weather-mood",
-  "version": "0.0.0",
+  "name": "weatherymood",
+  "version": "0.0.1",
   "description": "An easy app that retrieves a list of songs based on current weather.",
   "scripts": {
     "start": "webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors --port 8088",
