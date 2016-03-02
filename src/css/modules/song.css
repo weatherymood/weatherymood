@@ -4,7 +4,8 @@
     margin: 50px 0 150px 0;
 }
 
-#song a{
+#song #card{
+    background: #282828;
     display: block;
     transform: rotateY(-40deg);
     transform-style: preserve-3d;
@@ -13,7 +14,7 @@
     box-shadow: 0 0 0 5px rgba(0,0,0,0.1);
 }
 
-#song a.flipped{
+#song #card.flipped{
     opacity: 1;
     transform: rotateY(0deg);
 }
