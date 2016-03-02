@@ -1,0 +1,39 @@
+
+
+#logo{
+    width: 190px;
+    opacity: 1;
+    position: absolute;
+    z-index: 99;
+    left: 30px;
+    top: 20px;
+    svg{
+        fill: #232323;
+    }
+}
+
+#info-meteo{
+    flex-direction: column-reverse;
+    align-items: center;
+    right: 30px;
+    top: 20px;
+    z-index: 99;
+    position: absolute;
+    display: flex;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 19px;
+    transition: all .2s ease-in-out;
+    opacity: 0;
+    &.active{
+        opacity: 1;
+    }
+}
+
+#info-meteo-icon{
+    width: 37px;
+    margin-bottom: 5px;
+    svg{
+        width: 100%;
+    }
+}

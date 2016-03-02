@@ -1,6 +1,4 @@
 
-require('../css/main.css');
-
 import song from './song.js';
 import moods from './moods.js';
 import weather from './weather.js';

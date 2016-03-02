@@ -1,6 +1,4 @@
 
-require('../css/modules/song.css');
-
 import moods from './moods.js';
 
 var Moods = new moods();

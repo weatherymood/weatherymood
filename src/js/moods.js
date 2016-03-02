@@ -8,7 +8,8 @@ export default class Moods {
         'class': 'sun',
         'keywords': [
           'wake+up+happy',
-          'sunsets'
+          'sunsets',
+          'sun'
         ]
       },
       {

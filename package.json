@@ -4,11 +4,11 @@
   "description": "Weatherymood is a chrome extension that shows playlists based on current weather.",
   "scripts": {
     "start": "webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors --port 8088",
-    "build": "NODE_ENV=production webpack --progress -—colors",
+    "build": "NODE_ENV=production webpack --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Nicholas Ruggeri",
-  "license": "",
+  "license": "CC BY-NC-SA",
   "devDependencies": {
     "autoprefixer-core": "^5.1.11",
     "axios": "^0.9.1",
@@ -21,6 +21,9 @@
     "csswring": "^3.0.4",
     "doiuse": "^0.3.2",
     "file-loader": "^0.8.5",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-if": "^2.0.0",
+    "gulp-sass": "^2.2.0",
     "postcss": "^4.1.8",
     "postcss-loader": "^0.4.1",
     "postcss-nested": "^0.3.1",

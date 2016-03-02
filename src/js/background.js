@@ -1,6 +1,4 @@
 
-require('../css/modules/background.css');
-
 export default class Background {
 
   setBackground(mood){
