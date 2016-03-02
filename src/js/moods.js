@@ -15,7 +15,8 @@ export default class Moods {
         'codes': [801,802,803,804],
         'class': 'clouds',
         'keywords': [
-          'dark+&+stormy',
+          'clouds',
+          'above+the+clouds',
           'lost+in+the+clouds'
         ]
       },

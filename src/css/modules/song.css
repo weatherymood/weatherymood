@@ -1,7 +1,7 @@
 #song{
     width: 300px;
     perspective: 1200px;
-    margin: 50px 0 150px 0;
+    margin: 75px 0 150px;
 }
 
 #song #card{
@@ -33,7 +33,7 @@
     text-transform: uppercase;
     color: #000;
     font-size: 20px;
-    top: 105%;
+    top: 106%;
     left: 50%;
     width: 100%;
     transform: translateX(-50%);
@@ -48,8 +48,10 @@
 }
 
 #song-name{
-    font-weight: 600;
+    font-weight: 300;
+    text-transform: uppercase;
     opacity: 0;
+    font-size: 14px;
 }
 
 #song-album{

@@ -1,4 +1,4 @@
-.background{
+#background{
     left: 0;
     top: 0;
     position: fixed;
@@ -35,7 +35,7 @@
 
 #background-active.clouds{
     opacity: 0.3;
-    background: #3d3d3d;
+    background: linear-gradient(45deg, #efefef 0%, #efefef 21%, #001F35 100%);
 }
 
 #background-active.thunderstorm{

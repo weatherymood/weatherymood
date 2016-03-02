@@ -1,4 +1,6 @@
 
+require('../css/main.css');
+
 import song from './song.js';
 import moods from './moods.js';
 import weather from './weather.js';
@@ -12,6 +14,9 @@ var Background  = new background();
 var Geolocation  = new geolocation();
 
 var firstCall, secondCall, thirdCall;
+var d = document;
+
+var isIframe = false;
 
 var loadImg = (src, callback) => {
 
@@ -47,42 +52,44 @@ firstCall = new Promise(function (resolve, reject) {
 
         }).then(function (data) {
 
-            console.log(data)
+            if (isIframe) {
+                var track = {
+                    uri: data.uri,
+                }
+                var iframe = '<iframe id="card" src="https://embed.spotify.com/?uri='+track.uri+'&view=coverart" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>';
 
-            var track = {
-                uri: data.uri,
-                // name: data.name,
-                // album: data.album.name,
-                // cover: data.album.images[0].url
+                d.getElementById("song-cover").innerHTML = iframe;
+
+                d.getElementById("card").addEventListener('load', function() {
+                    d.getElementById("card").className += "flipped";
+                    d.getElementById("song-details").className += "active";
+                    Background.setBackground(Moods.getClass(mood));
+                });
+            } else {
+
+                var track = {
+                    uri: data.uri,
+                    name: data.name,
+                    cover: data.images[0].url
+                }
+
+                loadImg(track.cover, function() {
+
+                    d.getElementById("song-cover").innerHTML = '<a href="'+track.uri+'" id="card"><img src="'+track.cover+'"></a>';
+                    d.getElementById("song-play").innerHTML = '<a href="'+track.uri+'" class="play">play on spotify</a>';
+                    d.getElementById("song-name").innerHTML = track.name;
+
+                    setTimeout(function() {
+                        d.getElementById("card").className += "flipped";
+                    }, 100);
+
+                    setTimeout(function () {
+                        Background.setBackground(Moods.getClass(mood));
+                        d.getElementById("song-details").className += "active";
+                    }, 500)
+
+                });
             }
-            var iframe = '<iframe id="card" src="https://embed.spotify.com/?uri='+track.uri+'&view=coverart" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>';
-            document.getElementById("song-cover").innerHTML = iframe;
-
-            document.getElementById("card").addEventListener('load', function() {
-                document.getElementById("card").className += "flipped";
-                document.getElementById("song-details").className += "active";
-                Background.setBackground(Moods.getClass(mood));
-            });
-
-            // loadImg(track.cover, function() {
-
-            //     var iframe = '<iframe id="card" src="https://embed.spotify.com/?uri='+track.uri+'" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>';
-
-            //     document.getElementById("song-cover").innerHTML = iframe;
-
-            //     // document.getElementById("song-cover").innerHTML = '<a href="'+track.uri+'" id="card"><img src="'+track.cover+'"></a>';
-
-            //     setTimeout(function() {
-            //         document.getElementById("card").className += "flipped";
-            //     }, 100);
-            //     document.getElementById("song-album").innerHTML = track.album;
-            //     document.getElementById("song-name").innerHTML = track.name;
-            //     setTimeout(function () {
-            //         Background.setBackground(Moods.getClass(mood));
-            //         document.getElementById("song-details").className += "active";
-            //     }, 500)
-
-            // });
 
         })
 
