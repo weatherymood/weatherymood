@@ -18,7 +18,7 @@ module.exports = {
     },
     entry: {
         js: './src/js/app.js',
-        html: './index.html',
+        html: './index.html'
     },
 
     output: {

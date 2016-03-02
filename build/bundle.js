@@ -1826,7 +1826,9 @@
 
 	      axios.get(url).then(function (response) {
 	        cb(response.data.weather[0].id);
-	      })['catch'](function (response) {});
+	      })['catch'](function (response) {
+	        console.log('error');
+	      });
 	    }
 	  }]);
 
