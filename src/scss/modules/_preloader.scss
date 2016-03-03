@@ -1,0 +1,27 @@
+#preloader{
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    background: url(../img/preloader.png) 0 0;
+    background-size: cover;
+    z-index: 999;
+    transform: translate(-50%,-50%) translateZ(0);
+    opacity: 1;
+    transition: opacity .5s ease-out;
+    animation: slide 3s cubic-bezier(0.860, 0.000, 0.070, 1.000) infinite;
+    backface-visibility: hidden;
+    &.loaded{
+        opacity: 0;
+    }
+}
+
+@keyframes slide {
+  from{
+      background-position:0;
+  }
+  to{
+      background-position:100%;
+  }
+}
