@@ -1,8 +1,7 @@
-import style from '../css/modules/song.css'
 import moods from './moods.js'
-import axios from 'axios'
 
-var Moods = new moods()
+var Moods = new moods();
+import axios from 'axios'
 
 export default class Song {
 

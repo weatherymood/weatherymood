@@ -1,25 +1,24 @@
-import style from '../css/main.css'
-
 import song from './song.js'
 import moods from './moods.js'
 import weather from './weather.js'
 import background from './background.js'
 import geolocation from './geolocation.js'
+import axios from 'axios'
 
-var Song  = new song()
-var Moods  = new moods()
-var Weather  = new weather()
-var Background  = new background()
-var Geolocation  = new geolocation()
+let Song  = new song()
+let Moods  = new moods()
+let Weather  = new weather()
+let Background  = new background()
+let Geolocation  = new geolocation()
 
-var firstCall, secondCall, thirdCall
-var d = document
+let firstCall, secondCall, thirdCall
+let d = document
 
-var isIframe = false
+let isIframe = false
 
-var loadImg = (src, callback) => {
+let loadImg = (src, callback) => {
 
-    var sprite = new Image()
+    let sprite = new Image()
     sprite.onload = callback
     sprite.src = src
 
@@ -41,7 +40,7 @@ firstCall = new Promise(function (resolve, reject) {
 
     }).then(function (data) {
 
-        var mood = data
+        let mood = data
 
         thirdCall = new Promise(function (resolve, reject) {
 
@@ -52,10 +51,10 @@ firstCall = new Promise(function (resolve, reject) {
         }).then(function (data) {
 
             if (isIframe) {
-                var track = {
+                let track = {
                     uri: data.uri,
                 }
-                var iframe = `<iframe id="card" src="https://embed.spotify.com/?uri=${track.uri}&view=coverart" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>`
+                let iframe = `<iframe id="card" src="https://embed.spotify.com/?uri=${track.uri}&view=coverart" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>`
 
                 d.getElementById("song-cover").innerHTML = iframe
 
@@ -66,14 +65,14 @@ firstCall = new Promise(function (resolve, reject) {
                 })
             } else {
 
-                var track = {
+                let track = {
                     uri: data.uri,
                     name: data.name,
                     cover: data.images[0].url,
                 }
 
                 loadImg(track.cover, function() {
-
+                    console.log('sss')
                     d.getElementById("song-cover").innerHTML = `<a href="${track.uri}" id="card"><img src="${track.cover}"></a>`
                     d.getElementById("song-play").innerHTML = `<a href="${track.uri}" class="play">play on spotify</a>`
                     d.getElementById("song-name").innerHTML = track.name
