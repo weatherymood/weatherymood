@@ -6,6 +6,7 @@ module.exports = {
      devServer: {
         historyApiFallback: true,
         host: "0.0.0.0",
+        hot: true,
         watchOptions: {
             aggregateTimeout: 300,
             poll: 1000
