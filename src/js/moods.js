@@ -8,7 +8,7 @@ export default class Moods {
         'keywords': [
           'wake+up+happy',
           'sunsets',
-          'sun',
+          'sunshine'
         ]
       },
       {
@@ -16,8 +16,7 @@ export default class Moods {
         'class': 'clouds',
         'keywords': [
           'clouds',
-          'above+the+clouds',
-          'lost+in+the+clouds',
+          'lost+in+the+clouds'
         ]
       },
       {
@@ -32,6 +31,7 @@ export default class Moods {
         'codes': [200,201,202,210,211,212,221,230,231,232],
         'class': 'thunderstorm',
         'keywords': [
+          'stormy',
           'anthems+of+angst',
           'dream+theater',
         ]
@@ -49,7 +49,7 @@ export default class Moods {
       {
         'codes': [900,901,902,903,904,905,906],
         'class': 'extreme',
-        'keywords': ['metal', 'extreme+metal', 'metal', 'rock'],
+        'keywords': ['metal', 'extreme', 'rock'],
       }
     ]
   }
