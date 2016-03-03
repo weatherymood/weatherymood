@@ -11,8 +11,7 @@ Author: @nicholasruggeri - http://ruggeri.io
 
 var gulp        = require('gulp'),
     sass        = require('gulp-sass'),
-    prefix      = require('gulp-autoprefixer'),
-    gulpif      = require('gulp-if');
+    prefix      = require('gulp-autoprefixer');
 
 
 var prod = false; // var for production mode
