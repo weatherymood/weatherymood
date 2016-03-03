@@ -1,2 +1,4 @@
-# spotify-weather-mood
-An easy app that retrieves a list of songs based on current weather.
+
+![weatherymood](https://cdn.rawgit.com/nicholasruggeri/weatherymood/develop/src/img/weatherymood.svg "weatherymood")
+
+Weatherymood is a chrome extension that shows playlists based on current weather.

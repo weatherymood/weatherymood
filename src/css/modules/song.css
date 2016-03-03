@@ -1,0 +1,61 @@
+#song{
+    width: 300px;
+    perspective: 1200px;
+    margin: 75px 0 150px;
+}
+
+#song #card{
+    background: #282828;
+    display: block;
+    transform: rotateY(-40deg);
+    transform-style: preserve-3d;
+    transition: all 1s ease-out;
+    opacity: 0;
+    box-shadow: 0 0 0 5px rgba(0,0,0,0.1);
+}
+
+#song #card.flipped{
+    opacity: 1;
+    transform: rotateY(0deg);
+}
+
+#song img{
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+#song-details{
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    transition: opacity .5s ease-out;
+    text-transform: uppercase;
+    color: #000;
+    font-size: 20px;
+    top: 106%;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+}
+
+#song-details.active{
+    opacity: 1;
+}
+
+#song-details.active #song-name, #song-details.active #song-album{
+    opacity: 1;
+}
+
+#song-name{
+    font-weight: 300;
+    text-transform: uppercase;
+    opacity: 0;
+    font-size: 14px;
+}
+
+#song-album{
+    opacity: 0;
+    margin-top: 5px;
+    font-size: 12px;
+}
