@@ -27,3 +27,7 @@ build
 node_modules
 
 .DS_Store
+
+
+# Gulp generated files
+src/css/**/*

@@ -18,6 +18,13 @@ var gulp        = require('gulp'),
 var prod = false; // var for production mode
 
 
+var files = [
+    'manifest.json',
+    'src/img/**/*',
+    'src/css/**/*',
+]
+
+
 /**
 *
 * Styles
@@ -28,25 +35,27 @@ var prod = false; // var for production mode
 
 gulp.task('styles', function() {
     gulp.src('src/scss/**/*.scss')
-        .pipe(sass({outputStyle: prod ? 'compressed' : 'expanded'}))
+        .pipe(sass({outputStyle: 'compressed'}))
         .pipe(prefix({
             browsers: ['last 3 versions'],
         }))
-        .pipe(gulp.dest('build/css' ));
+        .pipe(gulp.dest('src/css' ));
 });
-
-
 
 
 /**
 *
-* Build assets
-* - styles
+* Build copy
 *
 **/
+gulp.task('copy', function () {
+  return gulp
+    .src(files, {base:'.'})
+    .pipe(gulp.dest('build'));
+});
 
-gulp.task('build', [ 'styles'], function() {
-    console.log('build assets');
+
+gulp.task('prod', ['styles', 'copy'], function() {
 });
 
 
@@ -58,7 +67,7 @@ gulp.task('build', [ 'styles'], function() {
 *
 **/
 
-gulp.task('watch', ['build'], function() {
+gulp.task('watch', ['prod'], function() {
     gulp.watch('src/scss/**/*.scss', ['styles']);
 });
 
