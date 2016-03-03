@@ -1,7 +1,7 @@
+import axios from 'axios'
 import moods from './moods.js'
 
 var Moods = new moods();
-import axios from 'axios'
 
 export default class Song {
 
