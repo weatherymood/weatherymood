@@ -69,6 +69,30 @@ html, body {
           align-items: center;
 }
 
+#app.offline #background-active {
+  opacity: 1;
+  background: linear-gradient(45deg, #fff02f 0, #fff02f 21%, #00a1ff 100%);
+}
+
+#app.offline #logo {
+  top: 50%;
+  left: 50%;
+  width: 285px;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#app.offline #logo:after {
+  content: "Unable to connect to the Internet";
+  margin-top: 6px;
+  display: block;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+}
+
 #push {
   height: 50px;
 }
