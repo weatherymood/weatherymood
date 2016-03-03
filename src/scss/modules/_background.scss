@@ -15,29 +15,44 @@
     top:0;
     left:0;
     opacity:0;
-    transition:all 1s ease-in-out
+    transition:opacity 1s ease-in-out;
+    &:after{
+        content: "";
+        opacity: 0.9;
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }
 #background-active.sun{
-    opacity:1;
-    background:linear-gradient(45deg,#fff02f 0,#fff02f 21%,#00a1ff 100%)
+    opacity: 1;
+    background: url(http://wallpapercave.com/wp/Knj52xR.jpg) top center;
+    background-size: cover;
+    &:after{
+        opacity: .5;
+        background:linear-gradient(45deg,#fff02f 0,#fff02f 21%,#00a1ff 100%);
+    }
 }
 #background-active.rain{
-    opacity:1;
-    background:linear-gradient(45deg,#459cbd 0,#459cbd 21%,#a07a00 100%)
+    opacity: 1;
+    background: url(https://dl.dropboxusercontent.com/u/2169104/projects/weatherymood/rain.jpg) top center;
+    background-size: cover;
+    &:after{
+        background:linear-gradient(45deg, #2DDA8A 0, #2DDA8A 21%, #11135D 100%);
+    }
 }
 #background-active.snow{
-    opacity:1;
     background:linear-gradient(45deg,#e2e2e2 0,#e2e2e2 21%,#001f35 100%)
 }
 #background-active.clouds{
-    opacity:.7;
     background:linear-gradient(45deg,#92e1ff 0,#92e1ff 1%,#fff 100%)
 }
 #background-active.thunderstorm{
-    opacity:1;
     background:linear-gradient(45deg,#000652 0,#000652 21%,#a7a500 100%)
 }
 #background-active.mist{
-    opacity:1;
     background:linear-gradient(45deg,#909090 0,#909090 21%,#fff 100%)
 }

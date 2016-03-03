@@ -1,5 +1,5 @@
 
-var axios = require('../../node_modules/axios');
+import axios from 'axios';
 
 export default class Weather {
 
@@ -9,7 +9,6 @@ export default class Weather {
   }
 
   getWeather(cb){
-
 
     var coords = localStorage.getItem("SWM_Position").split(","),
         url = this.api_url + 'lat=' + coords[0] + '&lon=' + coords[1] + '&units=metric&appid=' + this.api_key;
