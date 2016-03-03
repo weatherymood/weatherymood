@@ -4,12 +4,14 @@ import moods from './moods.js'
 import weather from './weather.js'
 import background from './background.js'
 import geolocation from './geolocation.js'
+import preloader from './preloader.js'
 
 let Song  = new song()
 let Moods  = new moods()
 let Weather  = new weather()
 let Background  = new background()
 let Geolocation  = new geolocation()
+let Preloader  = new preloader()
 
 let firstCall, secondCall, thirdCall
 let d = document
@@ -29,6 +31,9 @@ if (navigator.onLine){
 
         Geolocation.checkPosition(function(){
             resolve()
+            setTimeout(()=>{
+                Preloader.remove()
+            }, 0)
         })
 
     }).then(function(data){
