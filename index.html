@@ -80,6 +80,9 @@
 
         <div id="aside"></div>
 
+        <span id="shareFB" style="top:400px; left: 0; position: absolute;">Share</span>
+        <span id="shareTW" style="top:800px; left: 0; position: absolute;">Share</span>
+
         <div id="push"></div>
 
     </div>
@@ -94,7 +97,25 @@
             </p>
         </div>
     </div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1701930403414824',
+          xfbml      : true,
+          version    : 'v2.5'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <script src="bundle.js"></script>
+
 </body>
 </html>
