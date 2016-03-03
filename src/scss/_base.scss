@@ -12,6 +12,27 @@ html, body{
     display: flex;
     justify-content: center;
     align-items: center;
+    &.offline{
+        #background-active{
+            opacity:1;
+            background:linear-gradient(45deg,#fff02f 0,#fff02f 21%,#00a1ff 100%)
+        }
+        #logo{
+            top: 50%;
+            left: 50%;
+            width: 285px;
+            transform: translate(-50%,-50%);
+            &:after{
+                content: "Unable to connect to the Internet";
+                margin-top: 6px;
+                display: block;
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 15px;
+                text-align: center;
+            }
+        }
+    }
 }
 
 #push{

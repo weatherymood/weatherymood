@@ -11,6 +11,7 @@ export default class Weather {
     let coords = localStorage.getItem("SWM_Position").split(","),
         url = `${this.api_url}lat=${coords[0]}&lon=${coords[1]}&units=metric&appid=${this.api_key}`
     console.log(url)
+
     axios.get(url)
         .then(function (response) {
 

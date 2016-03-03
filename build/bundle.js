@@ -56,19 +56,17 @@
 
 	var _moodsJs2 = _interopRequireDefault(_moodsJs);
 
-	var _weatherJs = __webpack_require__(25);
+	var _weatherJs = __webpack_require__(21);
 
 	var _weatherJs2 = _interopRequireDefault(_weatherJs);
 
-	var _backgroundJs = __webpack_require__(26);
+	var _backgroundJs = __webpack_require__(22);
 
 	var _backgroundJs2 = _interopRequireDefault(_backgroundJs);
 
-	var _geolocationJs = __webpack_require__(29);
+	var _geolocationJs = __webpack_require__(23);
 
 	var _geolocationJs2 = _interopRequireDefault(_geolocationJs);
-
-	__webpack_require__(30);
 
 	var Song = new _songJs2['default']();
 	var Moods = new _moodsJs2['default']();
@@ -172,10 +170,8 @@
 
 	var _moodsJs2 = _interopRequireDefault(_moodsJs);
 
-	__webpack_require__(3);
-
 	var Moods = new _moodsJs2['default']();
-	var axios = __webpack_require__(7);
+	var axios = __webpack_require__(3);
 
 	var Song = (function () {
 	  function Song() {
@@ -230,7 +226,7 @@
 	    this.codes = [{
 	      'codes': [800],
 	      'class': 'sun',
-	      'keywords': ['wake+up+happy', 'sunsets']
+	      'keywords': ['wake+up+happy', 'sunsets', 'sun']
 	    }, {
 	      'codes': [801, 802, 803, 804],
 	      'class': 'clouds',
@@ -291,336 +287,22 @@
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(4);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/postcss-loader/index.js!./song.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/postcss-loader/index.js!./song.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	module.exports = __webpack_require__(4);
 
 /***/ },
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(5)();
-	exports.push([module.id, "#song{width:300px;-webkit-perspective:1200px;perspective:1200px;margin:75px 0 150px}#song #card{background:#282828;display:block;-webkit-transform:rotateY(-40deg);transform:rotateY(-40deg);-webkit-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-transition:all 1s ease-out;transition:all 1s ease-out;opacity:0;box-shadow:0 0 0 5px rgba(0,0,0,.1)}#song #card.flipped{opacity:1;-webkit-transform:rotateY(0deg);transform:rotateY(0deg)}#song img{display:block;width:100%;max-width:100%}#song-details{opacity:0;position:absolute;text-align:center;-webkit-transition:opacity .5s ease-out;transition:opacity .5s ease-out;text-transform:uppercase;color:#000;font-size:20px;top:106%;left:50%;width:100%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}#song-details.active{opacity:1}#song-details.active #song-name,#song-details.active #song-album{opacity:1}#song-name{font-weight:300;text-transform:uppercase;opacity:0;font-size:14px}#song-album{opacity:0;margin-top:5px;font-size:12px}", ""]);
-
-/***/ },
-/* 5 */
-/***/ function(module, exports) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	module.exports = function() {
-		var list = [];
-
-		// return the list of modules as css string
-		list.toString = function toString() {
-			var result = [];
-			for(var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if(item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
-
-		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
-			}
-			for(i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if(mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
-	};
-
-
-/***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	var stylesInDom = {},
-		memoize = function(fn) {
-			var memo;
-			return function () {
-				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-				return memo;
-			};
-		},
-		isOldIE = memoize(function() {
-			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
-		}),
-		getHeadElement = memoize(function () {
-			return document.head || document.getElementsByTagName("head")[0];
-		}),
-		singletonElement = null,
-		singletonCounter = 0;
-
-	module.exports = function(list, options) {
-		if(false) {
-			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-		}
-
-		options = options || {};
-		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-		// tags it will allow on a page
-		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
-
-		var styles = listToStyles(list);
-		addStylesToDom(styles, options);
-
-		return function update(newList) {
-			var mayRemove = [];
-			for(var i = 0; i < styles.length; i++) {
-				var item = styles[i];
-				var domStyle = stylesInDom[item.id];
-				domStyle.refs--;
-				mayRemove.push(domStyle);
-			}
-			if(newList) {
-				var newStyles = listToStyles(newList);
-				addStylesToDom(newStyles, options);
-			}
-			for(var i = 0; i < mayRemove.length; i++) {
-				var domStyle = mayRemove[i];
-				if(domStyle.refs === 0) {
-					for(var j = 0; j < domStyle.parts.length; j++)
-						domStyle.parts[j]();
-					delete stylesInDom[domStyle.id];
-				}
-			}
-		};
-	}
-
-	function addStylesToDom(styles, options) {
-		for(var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-			if(domStyle) {
-				domStyle.refs++;
-				for(var j = 0; j < domStyle.parts.length; j++) {
-					domStyle.parts[j](item.parts[j]);
-				}
-				for(; j < item.parts.length; j++) {
-					domStyle.parts.push(addStyle(item.parts[j], options));
-				}
-			} else {
-				var parts = [];
-				for(var j = 0; j < item.parts.length; j++) {
-					parts.push(addStyle(item.parts[j], options));
-				}
-				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-			}
-		}
-	}
-
-	function listToStyles(list) {
-		var styles = [];
-		var newStyles = {};
-		for(var i = 0; i < list.length; i++) {
-			var item = list[i];
-			var id = item[0];
-			var css = item[1];
-			var media = item[2];
-			var sourceMap = item[3];
-			var part = {css: css, media: media, sourceMap: sourceMap};
-			if(!newStyles[id])
-				styles.push(newStyles[id] = {id: id, parts: [part]});
-			else
-				newStyles[id].parts.push(part);
-		}
-		return styles;
-	}
-
-	function createStyleElement() {
-		var styleElement = document.createElement("style");
-		var head = getHeadElement();
-		styleElement.type = "text/css";
-		head.appendChild(styleElement);
-		return styleElement;
-	}
-
-	function createLinkElement() {
-		var linkElement = document.createElement("link");
-		var head = getHeadElement();
-		linkElement.rel = "stylesheet";
-		head.appendChild(linkElement);
-		return linkElement;
-	}
-
-	function addStyle(obj, options) {
-		var styleElement, update, remove;
-
-		if (options.singleton) {
-			var styleIndex = singletonCounter++;
-			styleElement = singletonElement || (singletonElement = createStyleElement());
-			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
-			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
-		} else if(obj.sourceMap &&
-			typeof URL === "function" &&
-			typeof URL.createObjectURL === "function" &&
-			typeof URL.revokeObjectURL === "function" &&
-			typeof Blob === "function" &&
-			typeof btoa === "function") {
-			styleElement = createLinkElement();
-			update = updateLink.bind(null, styleElement);
-			remove = function() {
-				styleElement.parentNode.removeChild(styleElement);
-				if(styleElement.href)
-					URL.revokeObjectURL(styleElement.href);
-			};
-		} else {
-			styleElement = createStyleElement();
-			update = applyToTag.bind(null, styleElement);
-			remove = function() {
-				styleElement.parentNode.removeChild(styleElement);
-			};
-		}
-
-		update(obj);
-
-		return function updateStyle(newObj) {
-			if(newObj) {
-				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
-					return;
-				update(obj = newObj);
-			} else {
-				remove();
-			}
-		};
-	}
-
-	var replaceText = (function () {
-		var textStore = [];
-
-		return function (index, replacement) {
-			textStore[index] = replacement;
-			return textStore.filter(Boolean).join('\n');
-		};
-	})();
-
-	function applyToSingletonTag(styleElement, index, remove, obj) {
-		var css = remove ? "" : obj.css;
-
-		if (styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = replaceText(index, css);
-		} else {
-			var cssNode = document.createTextNode(css);
-			var childNodes = styleElement.childNodes;
-			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
-			if (childNodes.length) {
-				styleElement.insertBefore(cssNode, childNodes[index]);
-			} else {
-				styleElement.appendChild(cssNode);
-			}
-		}
-	}
-
-	function applyToTag(styleElement, obj) {
-		var css = obj.css;
-		var media = obj.media;
-		var sourceMap = obj.sourceMap;
-
-		if(media) {
-			styleElement.setAttribute("media", media)
-		}
-
-		if(styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = css;
-		} else {
-			while(styleElement.firstChild) {
-				styleElement.removeChild(styleElement.firstChild);
-			}
-			styleElement.appendChild(document.createTextNode(css));
-		}
-	}
-
-	function updateLink(linkElement, obj) {
-		var css = obj.css;
-		var media = obj.media;
-		var sourceMap = obj.sourceMap;
-
-		if(sourceMap) {
-			// http://stackoverflow.com/a/26603875
-			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-		}
-
-		var blob = new Blob([css], { type: "text/css" });
-
-		var oldSrc = linkElement.href;
-
-		linkElement.href = URL.createObjectURL(blob);
-
-		if(oldSrc)
-			URL.revokeObjectURL(oldSrc);
-	}
-
-
-/***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(8);
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 
-	var defaults = __webpack_require__(9);
-	var utils = __webpack_require__(10);
-	var dispatchRequest = __webpack_require__(11);
-	var InterceptorManager = __webpack_require__(20);
-	var isAbsoluteURL = __webpack_require__(21);
-	var combineURLs = __webpack_require__(22);
-	var bind = __webpack_require__(23);
-	var transformData = __webpack_require__(16);
+	var defaults = __webpack_require__(5);
+	var utils = __webpack_require__(6);
+	var dispatchRequest = __webpack_require__(7);
+	var InterceptorManager = __webpack_require__(16);
+	var isAbsoluteURL = __webpack_require__(17);
+	var combineURLs = __webpack_require__(18);
+	var bind = __webpack_require__(19);
+	var transformData = __webpack_require__(12);
 
 	function Axios(defaultConfig) {
 	  this.defaults = utils.merge({}, defaultConfig);
@@ -703,7 +385,7 @@
 	axios.all = function all(promises) {
 	  return Promise.all(promises);
 	};
-	axios.spread = __webpack_require__(24);
+	axios.spread = __webpack_require__(20);
 
 	// Expose interceptors
 	axios.interceptors = defaultInstance.interceptors;
@@ -734,12 +416,12 @@
 
 
 /***/ },
-/* 9 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(10);
+	var utils = __webpack_require__(6);
 
 	var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 	var DEFAULT_CONTENT_TYPE = {
@@ -803,7 +485,7 @@
 
 
 /***/ },
-/* 10 */
+/* 6 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1053,7 +735,7 @@
 
 
 /***/ },
-/* 11 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -1075,10 +757,10 @@
 	        adapter = config.adapter;
 	      } else if (typeof XMLHttpRequest !== 'undefined') {
 	        // For browsers use XHR adapter
-	        adapter = __webpack_require__(13);
+	        adapter = __webpack_require__(9);
 	      } else if (typeof process !== 'undefined') {
 	        // For node use HTTP adapter
-	        adapter = __webpack_require__(13);
+	        adapter = __webpack_require__(9);
 	      }
 
 	      if (typeof adapter === 'function') {
@@ -1091,10 +773,10 @@
 	};
 
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 12 */
+/* 8 */
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -1191,17 +873,17 @@
 
 
 /***/ },
-/* 13 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(10);
-	var buildURL = __webpack_require__(14);
-	var parseHeaders = __webpack_require__(15);
-	var transformData = __webpack_require__(16);
-	var isURLSameOrigin = __webpack_require__(17);
-	var btoa = window.btoa || __webpack_require__(18);
+	var utils = __webpack_require__(6);
+	var buildURL = __webpack_require__(10);
+	var parseHeaders = __webpack_require__(11);
+	var transformData = __webpack_require__(12);
+	var isURLSameOrigin = __webpack_require__(13);
+	var btoa = window.btoa || __webpack_require__(14);
 
 	module.exports = function xhrAdapter(resolve, reject, config) {
 	  var requestData = config.data;
@@ -1276,7 +958,7 @@
 	  // This is only done if running in a standard browser environment.
 	  // Specifically not if we're in a web worker, or react-native.
 	  if (utils.isStandardBrowserEnv()) {
-	    var cookies = __webpack_require__(19);
+	    var cookies = __webpack_require__(15);
 
 	    // Add xsrf header
 	    var xsrfValue = config.withCredentials || isURLSameOrigin(config.url) ?
@@ -1327,12 +1009,12 @@
 
 
 /***/ },
-/* 14 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(10);
+	var utils = __webpack_require__(6);
 
 	function encode(val) {
 	  return encodeURIComponent(val).
@@ -1400,12 +1082,12 @@
 
 
 /***/ },
-/* 15 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(10);
+	var utils = __webpack_require__(6);
 
 	/**
 	 * Parse headers into an object
@@ -1443,12 +1125,12 @@
 
 
 /***/ },
-/* 16 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(10);
+	var utils = __webpack_require__(6);
 
 	/**
 	 * Transform the data for a request or a response
@@ -1469,12 +1151,12 @@
 
 
 /***/ },
-/* 17 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(10);
+	var utils = __webpack_require__(6);
 
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -1543,7 +1225,7 @@
 
 
 /***/ },
-/* 18 */
+/* 14 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1585,12 +1267,12 @@
 
 
 /***/ },
-/* 19 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(10);
+	var utils = __webpack_require__(6);
 
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -1644,12 +1326,12 @@
 
 
 /***/ },
-/* 20 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(10);
+	var utils = __webpack_require__(6);
 
 	function InterceptorManager() {
 	  this.handlers = [];
@@ -1702,7 +1384,7 @@
 
 
 /***/ },
-/* 21 */
+/* 17 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1722,7 +1404,7 @@
 
 
 /***/ },
-/* 22 */
+/* 18 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1740,7 +1422,7 @@
 
 
 /***/ },
-/* 23 */
+/* 19 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1757,7 +1439,7 @@
 
 
 /***/ },
-/* 24 */
+/* 20 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1790,7 +1472,7 @@
 
 
 /***/ },
-/* 25 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1803,7 +1485,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var axios = __webpack_require__(7);
+	var axios = __webpack_require__(3);
 
 	var Weather = (function () {
 	  function Weather(api_key, api_url) {
@@ -1818,12 +1500,16 @@
 	    value: function getWeather(cb) {
 
 	      var coords = localStorage.getItem("SWM_Position").split(","),
-	          url = this.api_url + 'lat=' + coords[0] + '&lon=' + coords[1] + '&appid=' + this.api_key;
+	          url = this.api_url + 'lat=' + coords[0] + '&lon=' + coords[1] + '&units=metric&appid=' + this.api_key;
 
 	      axios.get(url).then(function (response) {
+
+	        console.log(response);
 	        var icon = response.data.weather[0].main.toLowerCase();
+	        var temp = Math.round(response.data.main.temp);
+
 	        document.getElementsByClassName("icon-" + icon)[0].className += " active";
-	        document.getElementById("info-meteo-text").innerHTML = response.data.weather[0].description;
+	        document.getElementById("info-meteo-text").innerHTML = temp + ' °C';
 	        document.getElementById("info-meteo").className += " active";
 	        cb(response.data.weather[0].id);
 	      })['catch'](function (response) {
@@ -1839,8 +1525,8 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 26 */
-/***/ function(module, exports, __webpack_require__) {
+/* 22 */
+/***/ function(module, exports) {
 
 	"use strict";
 
@@ -1851,8 +1537,6 @@
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	__webpack_require__(27);
 
 	var Background = (function () {
 	  function Background() {
@@ -1874,40 +1558,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 27 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(28);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/postcss-loader/index.js!./background.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/postcss-loader/index.js!./background.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 28 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(5)();
-	exports.push([module.id, "#background{left:0;top:0;position:fixed;width:100%;height:100%;background:#f8f8f8;background:-webkit-radial-gradient(50%,#c3c3c3,#fff);background:radial-gradient(to 50%,#c3c3c3,#fff)}#background-active{position:absolute;width:100%;height:100%;top:0;left:0;opacity:0;-webkit-transition:all 1s ease-in-out;transition:all 1s ease-in-out}#background-active.sun{opacity:1;background:-webkit-linear-gradient(45deg,#fff02f 0,#fff02f 21%,#00a1ff 100%);background:linear-gradient(45deg,#fff02f 0,#fff02f 21%,#00a1ff 100%)}#background-active.rain{opacity:1;background:-webkit-linear-gradient(45deg,#459cbd 0,#459cbd 21%,#a07a00 100%);background:linear-gradient(45deg,#459cbd 0,#459cbd 21%,#a07a00 100%)}#background-active.snow{opacity:1;background:-webkit-linear-gradient(45deg,#e2e2e2 0,#e2e2e2 21%,#001f35 100%);background:linear-gradient(45deg,#e2e2e2 0,#e2e2e2 21%,#001f35 100%)}#background-active.clouds{opacity:.7;background:-webkit-linear-gradient(45deg,#92e1ff 0,#92e1ff 1%,#fff 100%);background:linear-gradient(45deg,#92e1ff 0,#92e1ff 1%,#fff 100%)}#background-active.thunderstorm{opacity:1;background:-webkit-linear-gradient(45deg,#000652 0,#000652 21%,#a7a500 100%);background:linear-gradient(45deg,#000652 0,#000652 21%,#a7a500 100%)}#background-active.mist{opacity:1;background:-webkit-linear-gradient(45deg,#909090 0,#909090 21%,#fff 100%);background:linear-gradient(45deg,#909090 0,#909090 21%,#fff 100%)}", ""]);
-
-/***/ },
-/* 29 */
+/* 23 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1959,39 +1610,6 @@
 	exports['default'] = Geolocation;
 	;
 	module.exports = exports['default'];
-
-/***/ },
-/* 30 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(31);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(6)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/postcss-loader/index.js!./main.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/postcss-loader/index.js!./main.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 31 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(5)();
-	exports.push([module.id, "@import\"https://fonts.googleapis.com/css?family=Roboto:400,700\";html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}html,body{font-family:Roboto,sans-serif;font-weight:300;height:100%}#app{min-height:100%;margin:0 auto -50px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}#push{height:50px}#footer{height:50px;overflow:hidden;position:relative;text-align:center}#footer svg{position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-80%);transform:translate(-50%,-80%);width:16px;height:17px}#footer:hover #footer-info{-webkit-transform:translateY(0);transform:translateY(0)}#footer-info{padding:10px 20px;box-sizing:border-box;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;height:50px;background:#232323;color:#fff;-webkit-transform:translateY(80%);transform:translateY(80%);-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}#footer-info p{margin:0 auto;font-size:10px;text-transform:uppercase;font-weight:600;letter-spacing:1px;line-height:1.2}#footer-info a{color:#fff;text-decoration:underline}#header{position:absolute;width:100%;left:0;z-index:9999;height:50px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;padding:0 20px;box-sizing:border-box}#logo{width:160px;opacity:.5}#info-meteo{opacity:0;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;text-transform:uppercase;font-weight:300;font-size:14px;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}#info-meteo.active{opacity:.5}.play{color:#fff;text-decoration:none;background:#2ebd59;font-size:14px;line-height:1.5;border-radius:500px;padding:7px 35px;margin-top:10px;display:inline-block;-webkit-transition:background-color .15s ease;transition:background-color .15s ease;letter-spacing:1.2px;min-width:130px;text-transform:uppercase;white-space:normal}.play:hover{background:#1ed760}#info-meteo-icon{margin-left:15px}#info-meteo-icon svg{width:25px}.meteo-icon{display:none}.meteo-icon.active{display:inline-block}", ""]);
 
 /***/ }
 /******/ ]);
