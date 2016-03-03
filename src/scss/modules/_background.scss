@@ -29,7 +29,7 @@
 }
 #background-active.sun{
     opacity: 1;
-    background: url(http://wallpapercave.com/wp/Knj52xR.jpg) top center;
+    background: url(../img/sun.jpg) no-repeat center center;
     background-size: cover;
     &:after{
         opacity: .5;
@@ -38,7 +38,7 @@
 }
 #background-active.rain{
     opacity: 1;
-    background: url(https://dl.dropboxusercontent.com/u/2169104/projects/weatherymood/rain.jpg) top center;
+    background: url(../img/rain.jpg) no-repeat center center;
     background-size: cover;
     &:after{
         background:linear-gradient(45deg, #2DDA8A 0, #2DDA8A 21%, #11135D 100%);
