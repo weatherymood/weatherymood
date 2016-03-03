@@ -24,7 +24,8 @@ export default class Moods {
         'class': 'rain',
         'keywords': [
           'rainy',
-          'raining day'
+          'raining+day',
+          'raining+days'
         ]
       },
       {
@@ -63,6 +64,7 @@ export default class Moods {
       if (this.codes[i].codes.indexOf(keyword) > -1) {
         limit = this.codes[i].keywords.length
         randomnumber = Math.floor(Math.random() * (limit))
+        console.log('keyword', this.codes[i].keywords[randomnumber])
         return this.codes[i].keywords[randomnumber]
       }
     }

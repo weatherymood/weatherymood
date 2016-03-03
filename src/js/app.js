@@ -74,7 +74,7 @@ if (navigator.onLine){
 
                     loadImg(track.cover, function() {
 
-                        d.getElementById("song-cover").innerHTML = `<a href="${track.uri}'" id="card"><img src="${track.cover}"></a>`
+                        d.getElementById("song-cover").innerHTML = `<div id="card"><img src="${track.cover}"></div>`
                         d.getElementById("song-play").innerHTML = `<a href="${track.uri}" class="play">play on spotify</a>`
                         d.getElementById("song-name").innerHTML = track.name
 
