@@ -57,8 +57,20 @@
     background:linear-gradient(45deg,#92e1ff 0,#92e1ff 1%,#fff 100%)
 }
 #background-active.thunderstorm{
-    background:linear-gradient(45deg,#000652 0,#000652 21%,#a7a500 100%)
+    opacity: 1;
+    background: url(../img/thunderstorm.jpg) no-repeat center center;
+    background-size: cover;
+    &:after{
+        opacity: .7;
+        background:linear-gradient(45deg, #1B1B1B 0, #1B1B1B 21%, #6B0031 100%);
+    }
 }
 #background-active.mist{
-    background:linear-gradient(45deg,#909090 0,#909090 21%,#fff 100%)
+    opacity: 1;
+    background: url(../img/mist.jpg) no-repeat center center;
+    background-size: cover;
+    &:after{
+        opacity: .6;
+        background:linear-gradient(45deg, #1B1B1B 0, #394071 21%, #FFFFFF 100%)
+    }
 }
