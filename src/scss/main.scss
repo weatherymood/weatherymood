@@ -1,5 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 
+// breakpoints
+$phone: "screen and (min-width: 480px)";
+$tablet: "screen and (min-width: 768px)";
+$desktop: "screen and (min-width: 1024px)";
+$large: "screen and (min-width: 1440px)";
+$onlyMobile: "only screen and (max-width: 767px)";
+$onlyTablet: "only screen and (min-width: 768px and max-width: 1023px)";
+$onlydesktop: "only screen and (min-width: 1024px and max-width: 1439px)";
+
 @import "reset";
 @import "base";
 
@@ -8,3 +17,5 @@
 @import "modules/song";
 @import "modules/background";
 @import "modules/footer";
+
+

@@ -3,6 +3,10 @@
     overflow: hidden;
     position: relative;
     text-align: center;
+    display: none;
+    @media #{$tablet} {
+        display: block;
+    }
     svg{
         position: absolute;
         top: 50%;
