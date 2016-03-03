@@ -1,10 +1,9 @@
-
-require('../css/modules/background.css');
+import style from '../css/modules/background.css'
 
 export default class Background {
 
   setBackground(mood){
-    document.getElementById("background-active").className += mood;
+    document.getElementById("background-active").className += mood
   }
 
-};
+}

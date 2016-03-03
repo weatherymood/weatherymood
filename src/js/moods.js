@@ -1,4 +1,3 @@
-
 export default class Moods {
 
   constructor(codes) {
@@ -8,7 +7,7 @@ export default class Moods {
         'class': 'sun',
         'keywords': [
           'wake+up+happy',
-          'sunsets'
+          'sunsets',
         ]
       },
       {
@@ -17,7 +16,7 @@ export default class Moods {
         'keywords': [
           'clouds',
           'above+the+clouds',
-          'lost+in+the+clouds'
+          'lost+in+the+clouds',
         ]
       },
       {
@@ -26,7 +25,7 @@ export default class Moods {
         'keywords': [
           'rainy+day',
           'rainy+days',
-          'music+for+a+rainy+day'
+          'music+for+a+rainy+day',
         ]
       },
       {
@@ -44,41 +43,37 @@ export default class Moods {
           'snowboarding',
           'snow+day',
           'snow',
-          'acoustic+winter'
+          'acoustic+winter',
         ]
       },
       {
         'codes': [900,901,902,903,904,905,906],
         'class': 'extreme',
-        'keywords': ['metal', 'extreme+metal', 'metal', 'rock']
+        'keywords': ['metal', 'extreme+metal', 'metal', 'rock'],
       }
     ]
   }
 
   getKeyword(keyword) {
 
-    var limit, randomnumber;
+    let limit, randomnumber
 
-    for (let i=0;i<this.codes.length;i++){
+    for (let i=0; i<this.codes.length; i++) {
 
-      if (this.codes[i].codes.indexOf(keyword) > -1){
-        limit = this.codes[i].keywords.length;
-        randomnumber = Math.floor(Math.random() * (limit));
-        return this.codes[i].keywords[randomnumber];
+      if (this.codes[i].codes.indexOf(keyword) > -1) {
+        limit = this.codes[i].keywords.length
+        randomnumber = Math.floor(Math.random() * (limit))
+        return this.codes[i].keywords[randomnumber]
       }
-
     }
-
   }
 
   getClass(keyword) {
 
-    for (let i=0;i<this.codes.length;i++){
+    for (let i=0; i<this.codes.length; i++){
       if (this.codes[i].codes.indexOf(keyword) > -1){
         return this.codes[i].class;
       }
     }
-
   }
-
 }
