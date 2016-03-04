@@ -15,6 +15,9 @@
     &.loaded{
         opacity: 0;
     }
+    .offline &{
+      display: none;
+    }
 }
 
 @keyframes slide {
