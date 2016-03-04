@@ -1,14 +1,4 @@
 export default class Sharer {
-
-  constructor(url) {
-    // this.trigger = trigger
-    // this.width = width
-    // this.height = height
-    // this.pos = pos
-    console.log(this.url)
-
-  }
-
   shareFB(url, name, images) {
     FB.ui({
       method: 'share',
