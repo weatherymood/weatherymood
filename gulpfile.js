@@ -70,7 +70,8 @@ gulp.task('zip', () => {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('prod', ['styles', 'copy', 'copy:icons', 'zip'], function() {
+gulp.task('prod', ['styles', 'copy', 'copy:icons'], function() {
+    gulp.start('zip')
 });
 
 
