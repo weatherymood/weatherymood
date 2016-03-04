@@ -75,11 +75,18 @@
                 <div id="song-name"></div>
                 <div id="song-album"></div>
                 <div id="song-play"></div>
+
+                <!-- share this playlist -->
+                <div class="share">
+                    <span id="shareFB" class="share-link">Share via Facebook</span>
+                    <span>/</span>
+                    <span id="shareTW" class="share-link">Share via Twitter</span>
+                </div>
+                <!-- share this playlist -->
             </div>
         </div>
 
         <div id="aside"></div>
-
         <div id="push"></div>
 
     </div>
@@ -94,7 +101,25 @@
             </p>
         </div>
     </div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1701930403414824',
+          xfbml      : true,
+          version    : 'v2.5'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <script src="bundle.js"></script>
+
 </body>
 </html>

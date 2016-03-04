@@ -5,6 +5,7 @@ import weather from './weather.js'
 import background from './background.js'
 import geolocation from './geolocation.js'
 import preloader from './preloader.js'
+import share from './share.js'
 
 let Song  = new song()
 let Moods  = new moods()
@@ -12,6 +13,7 @@ let Weather  = new weather()
 let Background  = new background()
 let Geolocation  = new geolocation()
 let Preloader  = new preloader()
+let Share  = new share()
 
 let firstCall, secondCall, thirdCall
 let d = document
@@ -55,6 +57,13 @@ if (navigator.onLine){
                 }, mood)
 
             }).then(function (data) {
+                console.log(data)
+                d.addEventListener('click', (e) => {
+                    if(e.target.id === 'shareFB' || e.target.id === "shareTW") {
+                        const {external_urls, name, images} = data
+                        e.target.id === 'shareFB' ? Share.shareFB(external_urls.spotify, name, images) : Share.shareTW(external_urls.spotify, name, images)
+                    }
+                })
 
                 if (isIframe) {
                     let track = {
