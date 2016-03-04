@@ -54,11 +54,11 @@
 }
 #background-active.clouds{
     opacity: 1;
-    background: url(../img/snow.jpg) no-repeat center center;
+    background: url(../img/clouds.jpg) no-repeat center center;
     background-size: cover;
     &:after{
-        opacity: .7;
-        background:linear-gradient(45deg, #F3F3F3 0, #F3F3F3 21%, #A5A7FF 100%);
+        opacity: .85;
+        background:linear-gradient(45deg, #FFD53A 0, #FFD53A 21%, #686CFF 100%)
     }
 }
 #background-active.thunderstorm{
