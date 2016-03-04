@@ -20,7 +20,7 @@ export default class Weather {
           var temp = Math.round(response.data.main.temp)
 
           document.getElementsByClassName("icon-"+icon)[0].className += " active"
-          document.getElementById("info-meteo-text").innerHTML = temp+' °C'
+          document.getElementById("info-meteo-text").innerHTML = temp+'°C'
           document.getElementById("info-meteo").className += " active"
           cb(response.data.weather[0].id)
         })
