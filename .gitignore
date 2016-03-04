@@ -31,3 +31,4 @@ node_modules
 
 # Gulp generated files
 src/css/**/*
+dist

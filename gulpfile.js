@@ -11,7 +11,8 @@ Author: @nicholasruggeri - http://ruggeri.io
 
 var gulp        = require('gulp'),
     sass        = require('gulp-sass'),
-    prefix      = require('gulp-autoprefixer');
+    prefix      = require('gulp-autoprefixer'),
+    zip         = require('gulp-zip');
 
 
 var prod = false; // var for production mode
@@ -62,6 +63,12 @@ gulp.task('copy:icons', function () {
     .pipe(gulp.dest('build'));
 });
 
+
+gulp.task('zip', () => {
+    return gulp.src('build/*')
+        .pipe(zip('archive.zip'))
+        .pipe(gulp.dest('dist'));
+});
 
 gulp.task('prod', ['styles', 'copy', 'copy:icons'], function() {
 });
