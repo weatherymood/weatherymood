@@ -23,6 +23,8 @@ var files = [
     'src/css/**/*',
 ]
 
+var icons = 'src/icons/**/*';
+
 
 /**
 *
@@ -54,7 +56,14 @@ gulp.task('copy', function () {
 });
 
 
-gulp.task('prod', ['styles', 'copy'], function() {
+gulp.task('copy:icons', function () {
+  return gulp
+    .src(icons)
+    .pipe(gulp.dest('build'));
+});
+
+
+gulp.task('prod', ['styles', 'copy', 'copy:icons'], function() {
 });
 
 
