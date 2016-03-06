@@ -104,6 +104,8 @@ if (navigator.onLine){
                     })
                 }
 
+            }).catch(function (response) {
+                console.log('err', response)
             })
 
         })

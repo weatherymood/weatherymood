@@ -24,7 +24,6 @@ export default class Moods {
         'class': 'rain',
         'keywords': [
           'rainy',
-          'raining+day',
           'raining+days'
         ]
       },
