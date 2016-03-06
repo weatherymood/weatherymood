@@ -15,8 +15,6 @@ export default class Sharer {
       top: screen.height / 2 - 260 / 2
     };
 
-    console.log('pos', pos)
-
     window.open(
       `https://twitter.com/share?url=${escape(url)}&text=I'm listing "${name}" playlist, via @WeatheryMood`,
       "Share playlist via @WeatheryMood @spotify",
