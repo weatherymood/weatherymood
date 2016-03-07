@@ -1,4 +1,5 @@
 #preloader{
+    z-index: 0;
     position: fixed;
     width: 100px;
     height: 100px;
@@ -6,7 +7,7 @@
     left: 50%;
     background: url(../img/preloader.png) 0 0;
     background-size: cover;
-    z-index: 999;
+    z-index: 0;
     transform: translate(-50%,-50%) translateZ(0);
     opacity: 1;
     transition: opacity .5s ease-out;
