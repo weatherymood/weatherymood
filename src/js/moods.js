@@ -16,7 +16,7 @@ export default class Moods {
         'class': 'clouds',
         'keywords': [
           'clouds',
-          'lost+in+the+clouds'
+          'cloudy'
         ]
       },
       {
