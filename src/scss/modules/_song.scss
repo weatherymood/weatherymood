@@ -24,9 +24,9 @@
             transform: rotateY(0deg);
         }
         &:hover{
-            img{
-                opacity: .5;
-            }
+            // img{
+            //     opacity: .5;
+            // }
             #song-replay{
                 transform: translateX(-50%) translateY(0%);
                 opacity: 1;
@@ -115,6 +115,7 @@
 }
 
 #song-replay{
+    display: none;
     opacity: 0;
     background: rgba(0,0,0,0.4);
     width: 16px;
