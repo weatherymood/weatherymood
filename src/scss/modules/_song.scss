@@ -19,13 +19,14 @@
             opacity: 1;
             transform: rotateY(0deg);
         }
-    }
-    &:hover{
-        #song-replay{
-            transform: translateX(-50%) translateY(0%);
-            opacity: 1;
+        &:hover{
+            #song-replay{
+                transform: translateX(-50%) translateY(0%);
+                opacity: 1;
+            }
         }
     }
+
 }
 
 #song-details{
@@ -108,7 +109,7 @@
 
 #song-replay{
     opacity: 0;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.4);
     width: 19px;
     height: 19px;
     padding: 6px;
@@ -116,10 +117,10 @@
     position: absolute;
     left: 50%;
     top: 120%;
-    transform: translateX(-50%) translateY(-10%);
+    transform: translateX(-50%) translateY(20%);
     cursor: pointer;
-    transition: all .15s ease;
+    transition: all .2s ease-out;
     &:hover{
-        background: rgba(0,0,0,0.6);
+        background: rgba(0,0,0,0.8);
     }
 }
