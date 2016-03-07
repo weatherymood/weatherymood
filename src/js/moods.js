@@ -23,8 +23,7 @@ export default class Moods {
         'codes': [500,501,502,503,504,511,520,521,522,531,300,301,302,310,311,312,313,314,321],
         'class': 'rain',
         'keywords': [
-          'rainy',
-          'raining+days'
+          'rainy'
         ]
       },
       {
