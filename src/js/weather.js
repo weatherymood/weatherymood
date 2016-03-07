@@ -21,7 +21,7 @@ export default class Weather {
 
           document.getElementsByClassName("icon-"+icon)[0].className += " active"
           document.getElementById("info-meteo-text").innerHTML = temp+'°C'
-          document.getElementById("info-meteo").className += " active"
+          document.getElementById("info-meteo").className = " active"
           cb(response.data.weather[0].id)
         })
         .catch((response) => {
