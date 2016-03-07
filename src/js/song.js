@@ -12,7 +12,7 @@ export default class Song {
     }
 
     axios.get(config.url)
-      .then(function (response) {
+      .then((response) => {
 
         console.log('res', response)
 
@@ -22,7 +22,7 @@ export default class Song {
         cb(response.data.playlists.items[randomnumber])
 
       })
-      .catch(function (response) {
+      .catch((response) => {
         console.log('err', response)
       })
   }

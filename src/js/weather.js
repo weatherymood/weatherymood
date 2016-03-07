@@ -13,7 +13,7 @@ export default class Weather {
     console.log(url)
 
     axios.get(url)
-        .then(function (response) {
+        .then((response) => {
 
           console.log(response)
           var icon = response.data.weather[0].main.toLowerCase()
@@ -24,7 +24,7 @@ export default class Weather {
           document.getElementById("info-meteo").className += " active"
           cb(response.data.weather[0].id)
         })
-        .catch(function (response) {
+        .catch((response) => {
           console.log('error')
         })
   }

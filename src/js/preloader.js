@@ -4,7 +4,7 @@ export default class Preloader {
 
     let p = document.getElementById('preloader')
     p.className += "loaded"
-    p.addEventListener('webkitTransitionEnd', function(event) {
+    p.addEventListener('webkitTransitionEnd', (event) => {
       p.parentNode.removeChild(p);
     }, false );
 

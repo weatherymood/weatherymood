@@ -34,33 +34,34 @@ let checkPosition = (resolve, reject) => {
 }
 
 let getWeather = (resolve, reject) => {
-    Weather.getWeather(function (data) {
+    Weather.getWeather((data) => {
         resolve(data)
     })
 }
 
 if (navigator.onLine){
+
     firstCall = new Promise((resolve, reject) => {
 
         checkPosition(resolve, reject)
 
-    }).then(function(data){
+    }).then((data) => {
 
-        secondCall = new Promise(function (resolve, reject) {
+        secondCall = new Promise((resolve, reject) => {
 
             getWeather(resolve, reject)
 
-        }).then(function (data) {
+        }).then((data) => {
 
             let mood = data
 
-            thirdCall = new Promise(function (resolve, reject) {
+            thirdCall = new Promise((resolve, reject) => {
 
-                Song.getSong(function (data) {
+                Song.getSong((data) => {
                     resolve(data)
                 }, mood)
 
-            }).then(function (data) {
+            }).then((data) => {
                 console.log(data)
                 d.addEventListener('click', (e) => {
                     if(e.target.id === 'shareFB' || e.target.id === "shareTW") {
@@ -75,7 +76,7 @@ if (navigator.onLine){
                     cover: data.images[0].url
                 }
 
-                loadImg(track.cover, function() {
+                loadImg(track.cover, () => {
 
                     d.getElementById("song-cover")
                      .insertAdjacentHTML('beforeend',`
@@ -93,18 +94,18 @@ if (navigator.onLine){
 
                     d.getElementById("song-name").innerHTML = track.name
 
-                    setTimeout(function() {
+                    setTimeout(() => {
                         d.getElementById("card").className += "flipped"
                     }, 100)
 
-                    setTimeout(function () {
+                    setTimeout(() => {
                         Background.setBackground(Moods.getClass(mood))
                         d.getElementById("song-details").className += "active"
                     }, 500)
 
                 })
 
-            }).catch(function (response) {
+            }).catch((response) => {
                 console.log('err', response)
             })
 

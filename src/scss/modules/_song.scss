@@ -8,18 +8,25 @@
         max-width: 100%;
     }
     #card{
-        background: #282828;
+        background: #fff;
         display: block;
         transform: rotateY(-40deg);
         transform-style: preserve-3d;
         transition: all 1s ease-out;
         opacity: 0;
         box-shadow: 0 0 0 5px rgba(0,0,0,0.1);
+        img{
+            opacity: 1;
+            transition: opacity .2s ease-out;
+        }
         &.flipped{
             opacity: 1;
             transform: rotateY(0deg);
         }
         &:hover{
+            img{
+                opacity: .5;
+            }
             #song-replay{
                 transform: translateX(-50%) translateY(0%);
                 opacity: 1;
@@ -110,13 +117,13 @@
 #song-replay{
     opacity: 0;
     background: rgba(0,0,0,0.4);
-    width: 19px;
-    height: 19px;
-    padding: 6px;
+    width: 16px;
+    height: 16px;
+    padding: 8px;
     border-radius: 100px;
     position: absolute;
     left: 50%;
-    top: 120%;
+    top: 130%;
     transform: translateX(-50%) translateY(20%);
     cursor: pointer;
     transition: all .2s ease-out;
