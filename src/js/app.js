@@ -39,28 +39,18 @@ let getWeather = (resolve, reject) => {
     })
 }
 
-if (navigator.onLine){
-
+let init = () => {
     firstCall = new Promise((resolve, reject) => {
-
         checkPosition(resolve, reject)
-
     }).then((data) => {
-
         secondCall = new Promise((resolve, reject) => {
-
             getWeather(resolve, reject)
-
         }).then((data) => {
-
             let mood = data
-
             thirdCall = new Promise((resolve, reject) => {
-
                 Song.getSong((data) => {
                     resolve(data)
                 }, mood)
-
             }).then((data) => {
                 console.log(data)
                 d.addEventListener('click', (e) => {
@@ -69,15 +59,12 @@ if (navigator.onLine){
                         e.target.id === 'shareFB' ? Share.shareFB(external_urls.spotify, name, images) : Share.shareTW(external_urls.spotify, name, images)
                     }
                 })
-
                 let track = {
                     uri: data.uri,
                     name: data.name,
                     cover: data.images[0].url
                 }
-
                 loadImg(track.cover, () => {
-
                     d.getElementById("song-cover")
                      .insertAdjacentHTML('beforeend',`
                         <div id="card">
@@ -91,26 +78,26 @@ if (navigator.onLine){
                                 </div>
                             </div>
                         `);
-
                     d.getElementById("song-name").innerHTML = track.name
-
                     setTimeout(() => {
-                        d.getElementById("card").className += "flipped"
+                        d.getElementById("card").className = "flipped"
                     }, 100)
-
                     setTimeout(() => {
                         Background.setBackground(Moods.getClass(mood))
-                        d.getElementById("song-details").className += "active"
+                        d.getElementById("song-details").className = "active"
                     }, 500)
-
                 })
-
             }).catch((response) => {
                 console.log('err', response)
             })
-
         })
     })
+}
+
+if (navigator.onLine){
+
+    init()
+
 } else {
     document.getElementById("app").className += 'offline'
 }
