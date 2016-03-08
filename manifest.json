@@ -1,9 +1,9 @@
 {
 
   "manifest_version": 2,
-  "name": "Weatherymood",
-  "version": "0.0.3",
-  "description": "Weatherymood is a chrome extension that shows playlists based on current weather.",
+  "name": "WeatheryMood",
+  "version": "0.0.4",
+  "description": "Is it rainy? Cloudy? Sunny? Just open a new tab and discover the magic of a Spotify playlist based on your current weather.",
   "author": "Nicholas Ruggeri",
 
   "chrome_url_overrides" : {
