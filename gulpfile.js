@@ -65,7 +65,7 @@ gulp.task('copy:icons', function () {
 
 
 gulp.task('zip', function() {
-    return gulp.src('build/*')
+    return gulp.src('build/**/*')
         .pipe(zip('archive.zip'))
         .pipe(gulp.dest('dist'));
 });
