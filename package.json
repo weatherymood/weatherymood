@@ -1,7 +1,7 @@
 {
   "name": "weatherymood",
   "version": "0.0.1",
-  "description": "Weatherymood is a chrome extension that shows playlists based on current weather.",
+  "description": "WeatheryMood is a chrome extension that shows playlists based on current weather.",
   "scripts": {
     "start": "webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors --port 8088 & gulp prod",
     "build": "NODE_ENV=production webpack --progress --colors & gulp prod",
