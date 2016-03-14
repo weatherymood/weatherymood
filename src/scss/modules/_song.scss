@@ -24,9 +24,9 @@
             transform: rotateY(0deg);
         }
         &:hover{
-            // img{
-            //     opacity: .5;
-            // }
+            img{
+                opacity: .5;
+            }
             #song-replay{
                 transform: translateX(-50%) translateY(0%);
                 opacity: 1;
@@ -94,6 +94,7 @@
         text-decoration: none;
         text-transform: uppercase;
         transition: background-color .15s ease;
+        box-shadow: 0 0 80px 0px rgba(0,0,0,0.6);
         &:after{
             content: "";
             display: block;
@@ -115,7 +116,7 @@
 }
 
 #song-replay{
-    display: none;
+    // display: none;
     opacity: 0;
     background: rgba(0,0,0,0.4);
     width: 16px;
@@ -128,6 +129,9 @@
     transform: translateX(-50%) translateY(20%);
     cursor: pointer;
     transition: all .2s ease-out;
+    svg{
+        pointer-events: none;
+    }
     &:hover{
         background: rgba(0,0,0,0.8);
     }

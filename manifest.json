@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "WeatheryMood",
-  "version": "0.1.1",
+  "version": "0.1.2",
 
   "description": "Is it rainy? Cloudy? Sunny? Just open a new tab and discover the magic of a Spotify playlist based on your current weather.",
   "author": "Nicholas Ruggeri",

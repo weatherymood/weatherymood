@@ -18,6 +18,14 @@ let Share  = new share()
 let firstCall, secondCall, thirdCall
 let d = document
 
+let reload = () => {
+    var el = document.getElementById('song-replay');
+    el.addEventListener('click', ()=>{
+        window.location.reload()
+    })
+}
+
+
 let loadImg = (src, callback) => {
     let sprite = new Image()
     sprite.onload = callback
@@ -27,9 +35,6 @@ let loadImg = (src, callback) => {
 let checkPosition = (resolve, reject) => {
     Geolocation.checkPosition(() => {
         resolve()
-        setTimeout(()=>{
-            Preloader.remove()
-        }, 0)
     })
 }
 
@@ -65,6 +70,9 @@ let init = () => {
                     cover: data.images[0].url
                 }
                 loadImg(track.cover, () => {
+                    setTimeout(()=>{
+                        Preloader.remove()
+                    }, 0)
                     d.getElementById("song-cover")
                      .insertAdjacentHTML('beforeend',`
                         <div id="card">
@@ -78,6 +86,7 @@ let init = () => {
                                 </div>
                             </div>
                         `);
+                    reload()
                     d.getElementById("song-name").innerHTML = track.name
                     setTimeout(() => {
                         d.getElementById("card").className = "flipped"
@@ -95,9 +104,12 @@ let init = () => {
 }
 
 if (navigator.onLine){
-
-    init()
-
+    setTimeout(()=>{
+        Preloader.show()
+        setTimeout(()=>{
+            init()
+        }, 500)
+    }, 500)
 } else {
     document.getElementById("app").className += 'offline'
 }

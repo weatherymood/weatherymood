@@ -1,31 +1,45 @@
 #preloader{
-    position: fixed;
-    width: 100px;
-    height: 100px;
-    top: 50%;
-    left: 50%;
-    background: url(../img/preloader.png) 0 0;
-    background-size: cover;
-    z-index: 1;
-    transform: translate(-50%,-50%) translateZ(0);
-    opacity: 1;
-    transition: opacity .5s ease-out;
-    animation: slide 3s cubic-bezier(0.860, 0.000, 0.070, 1.000) infinite;
-    backface-visibility: hidden;
-    &.loaded{
-        opacity: 0;
-        z-index: 0;
-    }
-    .offline &{
-      display: none;
-    }
+  border-radius: 100px;
+  height: 100px;
+  width: 100px;
+  left: 50%;
+  top: 50%;
+  opacity: 0;
+  z-index: 0;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%,-50%) translateZ(0) scale(0.5);
+  transition: all .3s cubic-bezier(0.390, 0.575, 0.435, 1.480);
+  background:linear-gradient(45deg, #2DDA8A 0, #2DDA8A 21%, #11135D 100%);
+  backface-visibility: hidden;
+  &.active{
+      opacity: 1;
+      transform: translate(-50%,-50%) translateZ(0) scale(1);
+      z-index: 1;
+  }
+  .offline &{
+    display: none;
+  }
+  svg{
+    fill: #fff;
+    display: block;
+    width: 80px;
+    height: 50px;
+  }
+  .path-1, .path-2, .path-3{
+    stroke-dashoffset: 0;
+    stroke-dasharray: 12px;
+    animation: slide 1.2s ease-in-out infinite;
+  }
 }
 
 @keyframes slide {
   from{
-      background-position:0;
+    stroke-dashoffset: 0;
   }
   to{
-      background-position:100%;
+    stroke-dashoffset: 24px;
   }
 }
