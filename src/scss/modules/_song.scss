@@ -40,16 +40,15 @@
     opacity: 0;
     position: absolute;
     text-align: center;
-    transition: opacity .5s ease-out, transform 1s ease-out;
+    transition: opacity 1s ease-out;
     text-transform: uppercase;
     color: #000;
     font-size: 20px;
     top: 106%;
     left: 50%;
     width: 100%;
-    transform: translateX(-50%) translateY(-5%);
+    transform: translate(-50%, 0%);
     &.active{
-        transform: translateX(-50%) translateY(0%);
         opacity: 1;
     }
 }

@@ -8,24 +8,15 @@ export default class Weather {
   }
 
   getWeather(cb) {
+
     let coords = localStorage.getItem("SWM_Position").split(","),
         url = `${this.api_url}lat=${coords[0]}&lon=${coords[1]}&units=metric&appid=${this.api_key}`
-    console.log(url)
 
-    axios.get(url)
-        .then((response) => {
+    axios.get(url).then((response) => {
+      cb(response)
+    }).catch((response) => {
+      console.log('error')
+    })
 
-          console.log(response)
-          var icon = response.data.weather[0].main.toLowerCase()
-          var temp = Math.round(response.data.main.temp)
-
-          document.getElementsByClassName("icon-"+icon)[0].className += " active"
-          document.getElementById("info-meteo-text").innerHTML = temp+'°C'
-          document.getElementById("info-meteo").className = " active"
-          cb(response.data.weather[0].id)
-        })
-        .catch((response) => {
-          console.log('error')
-        })
   }
 }

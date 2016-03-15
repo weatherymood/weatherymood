@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   transform: translate(-50%,-50%) translateZ(0) scale(0.5);
-  transition: all .3s cubic-bezier(0.390, 0.575, 0.435, 1.480);
+  transition: all .5s cubic-bezier(0.390, 0.575, 0.435, 1.480);
   background:linear-gradient(45deg, #2DDA8A 0, #2DDA8A 21%, #11135D 100%);
   backface-visibility: hidden;
   &.active{
