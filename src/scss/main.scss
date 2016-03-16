@@ -9,6 +9,18 @@ $onlyMobile: "only screen and (max-width: 767px)";
 $onlyTablet: "only screen and (min-width: 768px and max-width: 1023px)";
 $onlydesktop: "only screen and (min-width: 1024px and max-width: 1439px)";
 
+
+$bg0: linear-gradient(45deg, #2DDA8A 0, #2DDA8A 21%, #11135D 100%);
+$bg1: linear-gradient(45deg, #FFD53A 0, #FFD53A 21%, #686CFF 100%);
+$bg2: linear-gradient(45deg,#fff02f 0,#fff02f 21%,#00a1ff 100%);
+$bg3: linear-gradient(45deg,#DBD65C 0,#DBD65C 21%,#5614B0 100%);
+$bg4: linear-gradient(45deg,#F1F2B5 0,#F1F2B5 21%,#135058 100%);
+$bg5: linear-gradient(45deg,#FF4E50 0,#FF4E50 21%,#F9D423 100%);
+$bg6: linear-gradient(45deg,#49a09d 0,#49a09d 21%,#5f2c82 100%);
+$bg7: linear-gradient(45deg,#00C9FF 0,#00C9FF 21%,#92FE9D 100%);
+$bg8: linear-gradient(45deg,#004FF9 0,#004FF9 21%,#FFF94C 100%);
+$bg9: linear-gradient(45deg,#185a9d 0,#185a9d 21%,#43cea2 100%);
+
 @import "reset";
 @import "base";
 

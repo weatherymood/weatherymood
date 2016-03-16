@@ -52,7 +52,7 @@ let renderWeather = (icon, temp) => {
 
 
 let renderBackground = (id_mood) => {
-    d.getElementById("background-active").className = Moods.getClass(id_mood)
+    d.getElementById("background-active").className += ' '+Moods.getClass(id_mood)
 }
 
 let renderPlaylist = (data) => {
@@ -130,10 +130,14 @@ let init = () => {
 
 if (navigator.onLine){
     setTimeout(()=>{
-        Preloader.show()
-        setTimeout(()=>{
+        let initialPromise = new Promise((resolve, reject) => {
+            Preloader.show(()=>{
+                resolve()
+            })
+        }).then(()=>{
             init()
-        }, 200)
+        })
+
     }, 0)
 } else {
     document.getElementById("app").className += 'offline'

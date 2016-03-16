@@ -16,7 +16,7 @@ export default class Sharer {
     };
 
     window.open(
-      `https://twitter.com/share?url=${escape(url)}&text=I'm listing "${name}" playlist, via @WeatheryMood`,
+      `https://twitter.com/share?url=${escape(url)}&text=I'm listening "${name}" playlist, via @WeatheryMood`,
       "Share playlist via @WeatheryMood @spotify",
       `menubar=no,toolbar=no,resizable=yes,height=253,width=600,left=${pos.left},top=${pos.top}`,
     )
