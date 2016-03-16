@@ -9,11 +9,14 @@ export default class Preloader {
 
     let flag = false
     let p = document.getElementById('preloader')
+    let pbg = document.getElementById('preloader-bg')
 
-    p.className = ""
+    p.className = "active-loaded"
+
 
     p.addEventListener('transitionend', (event) => {
       if (!flag){
+        pbg.className = "loaded"
         cb()
       }
       flag = true

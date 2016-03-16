@@ -18,11 +18,6 @@
     position: absolute;
     display: flex;
     text-transform: uppercase;
-    transition: all .2s ease-in-out;
-    opacity: 0;
-    &.active{
-        opacity: 1;
-    }
 }
 
 #info-meteo-text{

@@ -10,9 +10,9 @@
     #card{
         background: #fff;
         display: block;
-        transform: rotateY(-40deg);
+        transform: rotateY(-40deg) translateZ(0);
         transform-style: preserve-3d;
-        transition: all 1s ease-out;
+        transition: all .5s ease-out;
         opacity: 0;
         box-shadow: 0 0 0 5px rgba(0,0,0,0.1);
         img{
@@ -21,7 +21,7 @@
         }
         &.flipped{
             opacity: 1;
-            transform: rotateY(0deg);
+            transform: rotateY(0deg) translateZ(0);
         }
         &:hover{
             img{

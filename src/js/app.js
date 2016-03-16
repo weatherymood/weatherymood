@@ -48,7 +48,6 @@ let getWeather = (resolve, reject) => {
 let renderWeather = (icon, temp) => {
     d.getElementsByClassName("icon-"+icon)[0].className += " active"
     d.getElementById("info-meteo-text").innerHTML = temp+'°C'
-    d.getElementById("info-meteo").className = " active"
 }
 
 
@@ -86,7 +85,7 @@ let renderPlaylist = (data) => {
     })
 }
 
-let initShareButtons = () => {
+let initShareButtons = (data) => {
     d.addEventListener('click', (e) => {
         if(e.target.id === 'shareFB' || e.target.id === "shareTW") {
             const {external_urls, name, images} = data
@@ -105,6 +104,7 @@ let init = () => {
         }).then((data) => {
 
             let id_mood = data
+            renderBackground(id_mood)
 
             thirdCall = new Promise((resolve, reject) => {
 
@@ -115,8 +115,7 @@ let init = () => {
             }).then((data) => {
 
                 Preloader.remove(()=>{
-                    initShareButtons()
-                    renderBackground(id_mood)
+                    initShareButtons(data)
                     renderPlaylist(data)
                 })
 
@@ -134,8 +133,8 @@ if (navigator.onLine){
         Preloader.show()
         setTimeout(()=>{
             init()
-        }, 500)
-    }, 500)
+        }, 200)
+    }, 0)
 } else {
     document.getElementById("app").className += 'offline'
 }
