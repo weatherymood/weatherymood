@@ -6,7 +6,8 @@ export default class Moods {
         'codes': [800],
         'class': 'sun',
         'keywords': [
-          'wake+up+happy',
+          'wake+up',
+          'sunny',
           'sunsets',
           'sunshine'
         ]
