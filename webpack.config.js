@@ -33,10 +33,10 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             },
-            {
-                test: /\.js$/,
-                loader: "strip-loader?strip[]=debug,strip[]=console.log"
-            }
+            // {
+            //     test: /\.js$/,
+            //     loader: "strip-loader?strip[]=debug,strip[]=console.log"
+            // }
         ]
     },
     plugins: []

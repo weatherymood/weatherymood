@@ -56,10 +56,19 @@ let renderBackground = (id_mood) => {
 }
 
 let renderPlaylist = (data) => {
+
+    let playlistCover
+
+    if (data.images[0] == undefined){
+        playlistCover = 'src/img/disc.jpg'
+    } else {
+        playlistCover = data.images[0].url
+    }
+
     let track = {
         uri: data.uri,
         name: data.name,
-        cover: data.images[0].url
+        cover: playlistCover
     }
     loadImg(track.cover, () => {
         d.getElementById("song-details").className = "active"
