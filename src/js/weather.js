@@ -15,7 +15,7 @@ export default class Weather {
     axios.get(url).then((response) => {
       cb(response)
     }).catch((response) => {
-      console.log('error')
+      console.log('error', response)
     })
 
   }

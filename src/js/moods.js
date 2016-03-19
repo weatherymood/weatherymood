@@ -3,10 +3,10 @@ export default class Moods {
   constructor(codes) {
     this.codes = [
       {
-        'codes': [800],
-        'class': 'sun',
+        'codes': [701,711,800],
+        'class': 'clear',
         'keywords': [
-          'wake+up',
+          'wake+up+happy',
           'sunny',
           'sunsets',
           'sunshine'
@@ -63,7 +63,7 @@ export default class Moods {
       if (this.codes[i].codes.indexOf(keyword) > -1) {
         limit = this.codes[i].keywords.length
         randomnumber = Math.floor(Math.random() * (limit))
-        console.log('keyword', this.codes[i].keywords[randomnumber])
+       console.log('The keyword is: ', this.codes[i].keywords[randomnumber])
         return this.codes[i].keywords[randomnumber]
       }
     }

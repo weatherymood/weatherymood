@@ -46,13 +46,14 @@ let getWeather = (resolve, reject) => {
 }
 
 let renderWeather = (icon, temp) => {
-    d.getElementsByClassName("icon-"+icon)[0].className += " active"
     d.getElementById("info-meteo-text").innerHTML = temp+'°C'
 }
 
 
 let renderBackground = (id_mood) => {
-    d.getElementById("background-active").className += ' '+Moods.getClass(id_mood)
+    var type = Moods.getClass(id_mood)
+    d.getElementsByClassName("icon-"+type)[0].className += " active"
+    d.getElementById("background-active").className += ' '+type
 }
 
 let renderPlaylist = (data) => {
@@ -105,6 +106,8 @@ let initShareButtons = (data) => {
 
 let init = () => {
 
+    console.log("Hello :)")
+
     firstCall = new Promise((resolve, reject) => {
         checkPosition(resolve, reject)
     }).then((data) => {
@@ -129,7 +132,7 @@ let init = () => {
                 })
 
             }).catch((response) => {
-                console.log('err', response)
+                console.log('error', response)
             })
         })
     })

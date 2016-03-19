@@ -35,7 +35,7 @@
     &.bg-8{&:after{background: $bg8;}} // http://uigradients.com/#Ukraine
     &.bg-9{&:after{background: $bg9;}} // http://uigradients.com/#EndlessRiver
 }
-#background-active.sun{
+#background-active.clear{
     opacity: 1;
     background: url(../img/sun.jpg) no-repeat center center;
     background-size: cover;

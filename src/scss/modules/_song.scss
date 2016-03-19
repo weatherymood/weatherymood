@@ -64,7 +64,10 @@
     font-size: 14px;
     overflow: hidden;
     white-space: nowrap;
+    letter-spacing: 1px;
     text-overflow: ellipsis;
+    padding: 10px 15px;
+    color: rgba(0,0,0,0.7);
 }
 
 #song-album{
