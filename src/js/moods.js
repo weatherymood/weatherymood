@@ -32,7 +32,8 @@ export default class Moods {
         'class': 'thunderstorm',
         'keywords': [
           'stormy',
-          'dream+theater',
+          'dark',
+          'rock'
         ]
       },
       {
