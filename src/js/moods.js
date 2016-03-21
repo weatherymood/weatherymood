@@ -32,7 +32,6 @@ export default class Moods {
         'class': 'thunderstorm',
         'keywords': [
           'stormy',
-          'anthems+of+angst',
           'dream+theater',
         ]
       },
@@ -63,7 +62,7 @@ export default class Moods {
       if (this.codes[i].codes.indexOf(keyword) > -1) {
         limit = this.codes[i].keywords.length
         randomnumber = Math.floor(Math.random() * (limit))
-       console.log('The keyword is: ', this.codes[i].keywords[randomnumber])
+        console.log('The keyword is:', this.codes[i].keywords[randomnumber])
         return this.codes[i].keywords[randomnumber]
       }
     }

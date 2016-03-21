@@ -16,6 +16,7 @@ export default class Weather {
       cb(response)
     }).catch((response) => {
       console.log('error', response)
+      cb(response)
     })
 
   }

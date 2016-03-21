@@ -23,7 +23,6 @@ let reload = () => {
     })
 }
 
-
 let loadImg = (src, callback) => {
     let sprite = new Image()
     sprite.onload = callback
@@ -38,14 +37,23 @@ let checkPosition = (resolve, reject) => {
 
 let getWeather = (resolve, reject) => {
     Weather.getWeather((response) => {
-        let icon = response.data.weather[0].main.toLowerCase()
-        let temp = Math.round(response.data.main.temp)
-        renderWeather(icon, temp)
-        resolve(response.data.weather[0].id)
+        console.log('response status is:', response.status)
+        if (response.status == 200){
+            let temp = Math.round(response.data.main.temp)
+            let weatherId = response.data.weather[0].id
+            console.log('The weather data is:', response)
+            console.log('The weather id is:', weatherId)
+            console.log('The temp is:', temp)
+            renderWeather(temp)
+            resolve(weatherId)
+        } else {
+            renderWeather(15)
+            resolve(801)
+        }
     })
 }
 
-let renderWeather = (icon, temp) => {
+let renderWeather = (temp) => {
     d.getElementById("info-meteo-text").innerHTML = temp+'°C'
 }
 
@@ -106,7 +114,11 @@ let initShareButtons = (data) => {
 
 let init = () => {
 
+    console.log('________')
+    console.log(' ')
     console.log("Hello :)")
+    console.log('________')
+    console.log(' ')
 
     firstCall = new Promise((resolve, reject) => {
         checkPosition(resolve, reject)
@@ -137,8 +149,6 @@ let init = () => {
         })
     })
 }
-
-
 
 if (navigator.onLine){
     setTimeout(()=>{
