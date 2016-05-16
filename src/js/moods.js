@@ -16,7 +16,6 @@ export default class Moods {
         'codes': [801,802,803,804],
         'class': 'clouds',
         'keywords': [
-          'clouds',
           'cloudy'
         ],
       },
